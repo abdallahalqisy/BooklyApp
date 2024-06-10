@@ -1,3 +1,4 @@
+import 'package:booklyapp/Features/home/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:booklyapp/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:booklyapp/Features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:booklyapp/Features/home/presentation/views/widgets/featured_list_view.dart';
@@ -10,26 +11,58 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(),
-          FeaturedBooksListView(),
-          SizedBox(
-            height: 45,
+    return const CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomAppBar(),
+              FeaturedBooksListView(),
+              SizedBox(
+                height: 45,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 30),
+                child: Text(
+                  'Best Seller',
+                  style: Styles.textStyle18,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
           ),
-          Text(
-            'Best Seller',
-            style: Styles.textStyle18,
+        ),
+        SliverFillRemaining(
+          child: Padding(
+            padding: EdgeInsets.only(left: 30),
+            child: BestSellerListView(),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          BestSellerListViewItem(),
-        ],
-      ),
+        )
+      ],
     );
+    // return const Padding(
+    //   padding: EdgeInsets.only(left: 30),
+    //   child: Column(
+    //     crossAxisAlignment: CrossAxisAlignment.start,
+    //     children: [
+    //       CustomAppBar(),
+    //       FeaturedBooksListView(),
+    //       SizedBox(
+    //         height: 45,
+    //       ),
+    //       Text(
+    //         'Best Seller',
+    //         style: Styles.textStyle18,
+    //       ),
+    //       SizedBox(
+    //         height: 20,
+    //       ),
+    //       BestSellerListView()
+    //     ],
+    //   ),
+    // );
   }
 }
