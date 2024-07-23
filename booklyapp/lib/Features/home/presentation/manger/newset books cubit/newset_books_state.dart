@@ -5,16 +5,16 @@ sealed class NewsetBooksState {}
 
 final class NewsetBooksInitial extends NewsetBooksState {}
 
-final class FeaturedBooksLoading extends NewsetBooksState {}
+final class NewsetBooksLoading extends NewsetBooksState {}
 
-final class FeaturedBooksFailure extends NewsetBooksState {
+final class NewsetBooksFailure extends NewsetBooksState {
   final String errorMessage;
 
-  FeaturedBooksFailure(this.errorMessage);
+  NewsetBooksFailure(this.errorMessage);
 }
 
-final class FeaturedBooksSuccess extends NewsetBooksState {
+final class NewsetBooksSuccess extends NewsetBooksState {
   final List<BookModel> books;
 
-  FeaturedBooksSuccess(this.books);
+  NewsetBooksSuccess(this.books);
 }
