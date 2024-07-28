@@ -3,7 +3,6 @@ import 'package:booklyapp/Features/home/presentation/views/widgets/book_rating.d
 import 'package:booklyapp/Features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:booklyapp/constants.dart';
 import 'package:booklyapp/core/utils/app_router.dart';
-import 'package:booklyapp/core/utils/assets.dart';
 import 'package:booklyapp/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +14,7 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 30),
@@ -24,7 +23,7 @@ class BookListViewItem extends StatelessWidget {
           child: Row(
             children: [
               CustomBookImage(
-                  imagUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+                  imagUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
               const SizedBox(
                 width: 30,
               ),
