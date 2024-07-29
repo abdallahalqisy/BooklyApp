@@ -5,8 +5,8 @@ import 'package:booklyapp/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BooksDetailsSction extends StatelessWidget {
-  const BooksDetailsSction({super.key});
-
+  const BooksDetailsSction({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
